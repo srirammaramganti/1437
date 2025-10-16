@@ -1,0 +1,203 @@
+Definitions:
+classes are the blueprint for creating objects
+
+data members -> variables (describe the properties of the object)
+
+member functions -> functions that are apart of the Classes (define what the object is doing)
+
+Creating an Object:
+Name of the Class (SPACE) Name of the object;
+ex: Car cars;
+
+cars.make = "Ford";
+cars.year = "2006";
+car.model = "Mustang";
+
+Access Modifiers:
+public: -> allows changes directly
+private: -> does not allow changes directly
+
+ex: class Student {
+    private:
+        string name;
+    public:
+        void SetName(string name) {
+            //this allows you to use the same variable
+            //setting name = name from private or to private
+            this->name = name;
+        }
+        string GetName() {
+            //retreiving name from the private access modifier
+            return name;
+        }
+};
+
+Constructors:
+constructor is a function there the object automatically runs when it is created
+
+class Book {
+    public:
+        string title;
+        //since the variable is public there is no hassle
+        Book() {
+            title = "Unknown";
+        }
+};
+constructor with parameters
+class Book {
+    public:
+        string title;
+        Book(string t) {
+            //saying that string t's value = title this would be helpful if the title variable is a private variable
+            title = t; //or we can do this->title = title but the parameter has to string title
+        }
+};
+
+int main() {
+    Book b1("1984"); // because the constructor has a parameter when we run it in main we can type out answer into it and it will keep it
+    return 67;
+}
+constructor overloading - we have multiple of the same constructors so we can assign what values we want in main
+class Book {
+    public:
+        string title;
+        int pages;
+        Book() {
+            title = "Unknown";
+        }
+        Book(string title) {
+            this->title = title;
+        }
+        Book(string title, int pages) {
+            this->title = title;
+            this->pages = pages;
+        }
+};
+
+int main() {
+    Book b1;
+    Book b2("Chronicles of Skibidi Toilet")l
+    Book b3("Chronicles of Skibidi Toilet", 6769);
+
+    //just print all of them they will have 3 different outputs
+    return 0;
+}
+constuctors intialization lists
+instead of assigning values inside the constructor body - we can assign them with an intialization list
+class Car {
+    private:
+        string model;
+        int year;
+    public:
+        // need the : and the paramters will be inside like look below
+        //Car(string m, int y) : model(m), year(y) { }
+        Car(string model, int year) : model(model), year(year) {
+            //could leave it empty but you could just print somthing out
+        }
+}
+
+
+this keyword
+this->variablename/*belongs to the object*/ = variablename;
+means that we can use the same variable name twice 
+this refers to the current object - used to clarify which variable belongs to the object when the parameters are the same
+
+Member Functions: 
+Mutators
+mutators or setters - modify private data
+class Weather {
+    private:
+        string condition;
+        double temperature;
+    public:
+        void SetCondition(string condition) {
+            this->condition = condition;
+        }
+        or
+        void SetCondition(string cond) {
+            condition = cond;
+        }
+        ------
+        void SetTemperature(double temperature) {
+            this-temperature = temperature;
+        }
+}
+Accessors
+accessors or getters - retreive private data
+class Weather {
+    private:
+        string condition;
+        double temperature;
+    public:
+        string GetTemperature() {
+            //actively returning the private variable temperature in a public manner giving us a way to see the data
+            return temperature;
+        }
+        double GetCondition() {
+            //actively returning the private variable condition in a public manner giving us a way to see the data
+            return condition;
+        }
+}
+
+Using Classes in main:
+class Weather {
+    private:
+        string condition;
+        double temperature;
+    public:
+        void SetCondition(string condition) {
+            this->condition = condition;
+        }
+        void SetTemperature(double temperature) {
+            this-temperature = temperature;
+        }
+        string GetTemperature() {
+            return temperature;
+        }
+        double GetCondition() {
+            return condition;
+        }
+}
+
+int main() {
+    Weather w;
+    w.SetCondition("Sunny");
+    w.SetTemperature(67.69);
+    //set assigns the values to the variable then the variable is return in get so that is why we are returning get
+    cout << w.GetCondition() << " " << w.GetTemperature() << endl;
+}
+
+Function Overloading:
+same function name, but different parameter - we are overloading the functions and the compiler will decide what to call
+
+class Math {
+    public:
+    //the compiler will decide what to call based on the inputs provided
+    // if the input is 2 int then it will pull the int Add or if the input is 2 doubles then it will pull the double Add
+        int Add(int a, int b) {
+            return a + b;
+        }
+        double Add(double a, double b) {
+            return a + b;
+        }
+}
+
+Object Vectors:
+
+Pass by Reference:
+pass by reference is used when you dont want a copy of your arguments or what you want to access
+
+void upgrade(Car& c) { c.setYear(c.getYear() + 1); }   // changes persist
+//easy thing to remember if there needs to be something added to a private data member 
+//then have the getter + whatever you want added then have the setter so you set the getter + 1 or smth
+in the example above we can take the class and object and have a passby reference in the class to allow it to make a change to the member func inside
+
+IMPLEMENTATION INSIDE YOUR OWN CLASS
+SETTER
+setter because the setter doesnt return anything and will always have a parameter
+void setBrand(const string& b) { brand = b; }
+
+GETTER
+getter will always return passby reference because getters return
+const string& getBrand() const { return brand; }
+

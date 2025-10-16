@@ -12,7 +12,7 @@ int main() {
     }
     ofstream output("output.txt");
     if (!output.is_open()) {
-        cout << "File not found." << endl;
+        cout << "File skibidi found." << endl;
         return -1;
     }
     string line;
