@@ -11,7 +11,7 @@ ex: Car cars;
 
 cars.make = "Ford";
 cars.year = "2006";
-car.model = "Mustang";
+cars.model = "Mustang";
 
 Access Modifiers:
 public: -> allows changes directly
