@@ -2,59 +2,69 @@
 #include <string>
 using namespace std;
 
-struct CarInfo {
-   string Make;
-   string Model;
-   int Year;
+struct Employee {
+   string firstName;
+   string lastName;
+   int age;
+   int salary;
 };
 
-//declaring the func
-bool printCarsByYear(CarInfo cars[], int numOfCars, int prodYear);
-
-//defining the func
-bool printCarsByYear(CarInfo cars[], int numOfCars, int prodYear) {
-    bool found = false;
-    bool header = false;
-    for (int i = 0; i < numOfCars; ++i) {
-        if (cars[i].Year >= prodYear) {
-           if (!header) {
-              cout << "Cars produced after " << prodYear << " in inventory:" << endl;
-           }
-            cout << cars[i].Make << " "
-                 << cars[i].Model << " "
-                 << cars[i].Year << endl;
-            found = true;
-            header = true;
-        }
-    }
-    if (!found) {
-        cout << "No cars produced in " << prodYear << " in inventory." << endl;
-    }
-    return found;   // important: function returns bool
+/*
+ * Updates the salary of the employee whose first+last name match.
+ * Returns true if someone was updated, false otherwise.
+ */
+bool givePromotion(Employee employees[], int numOfEmployees,
+                   const string& firstName, const string& lastName,
+                   int newSalary) {
+   for (int i = 0; i < numOfEmployees; ++i) {
+      if (employees[i].firstName == firstName &&
+          employees[i].lastName  == lastName) {
+         employees[i].salary = newSalary;
+         return true;
+      }
+   }
+   return false;
 }
 
 int main() {
-   CarInfo cars[10];
-   int numOfCars, prodYear;
+   Employee employees[10];
+   int numOfEmployees;
 
-   cin >> numOfCars;
-   if (numOfCars < 0) numOfCars = 0;
-   if (numOfCars > 10) numOfCars = 10;
+   cin >> numOfEmployees;
 
-   for (int i = 0; i < numOfCars; ++i) {
-      cin >> cars[i].Make >> cars[i].Model >> cars[i].Year;
+   for (int i = 0; i < numOfEmployees; ++i) {
+      cin >> employees[i].firstName
+          >> employees[i].lastName
+          >> employees[i].age
+          >> employees[i].salary;
    }
 
-   // Read the query year last
-   cin >> prodYear;
+   string firstName, lastName;
+   int newSalary;
+   cin >> firstName >> lastName >> newSalary;
 
-   cout << "You entered:" << endl;
-   for (int i = 0; i < numOfCars; ++i) {
-      cout << cars[i].Make << " " << cars[i].Model << " " << cars[i].Year << endl;
+   cout << "Employees:" << endl;
+   for (int i = 0; i < numOfEmployees; ++i) {
+      cout << employees[i].firstName << " "
+           << employees[i].lastName << ", "
+           << employees[i].age << " years old. Salary: $"
+           << employees[i].salary << endl;
    }
 
-   // Call the function only when the step/test expects filtered output:
-   // (void)printCarsByYear(cars, numOfCars, prodYear);
+   // Try to apply the promotion
+   bool updated = givePromotion(employees, numOfEmployees, firstName, lastName, newSalary);
+   cout << endl;
+   if (updated) {
+      cout << "Updated Employees:" << endl;
+      for (int i = 0; i < numOfEmployees; ++i) {
+         cout << employees[i].firstName << " "
+              << employees[i].lastName << ", "
+              << employees[i].age << " years old. Salary: $"
+              << employees[i].salary << endl;
+      }
+   } else {
+      cout << "Employee not found" << endl;
+   }
 
    return 0;
 }
