@@ -14,7 +14,6 @@ struct district {
   int num_technician;
   string technicians[10];
 };
-
 void load(string fname, district districts[], int& num, int& power) {
   ifstream input(fname);
   if (!input.is_open()) {
@@ -68,7 +67,6 @@ void save(string fname, district districts[], int num, int power) {
     }
   }
 }
-
 void printAll(district districts[], int& num, int& power) {
   cout << "The current power supply is " << power << "MW." << endl;
   for (int i = 0; i < num; i++) {
@@ -91,14 +89,6 @@ void printAll(district districts[], int& num, int& power) {
       }
       cout << endl;
     }
-    /*cout << "Technicians: ";
-    for (int g = 0; g < districts[i].num_technician; g++) {
-      cout << districts[i].technicians[g];
-      if (g < districts[i].num_technician - 1) {
-        cout << ", ";
-      }
-    }
-    cout << endl;*/
     cout << "---" << endl;
   }
   double totalPower = 0;
@@ -115,16 +105,13 @@ void printAll(district districts[], int& num, int& power) {
     cout << "---" << endl;
   }
 }
-
 void cut_power(string name, district districts[], int& num) {
   for (int i = 0; i < num; i++) {
     if (districts[i].name == name) {
       districts[i].has_power = false;
-      //districts[i].power = 0;
     }
   }
 }
-
 void restore_power(string name, district districts[], int& num) {
   for (int i = 0; i < num; i++) {
     if (districts[i].name == name) {
@@ -132,7 +119,6 @@ void restore_power(string name, district districts[], int& num) {
     }
   }
 }
-
 void assign_technician(string technicianName, string districtName, district districts[], int& num) {
   bool found;
   for (int i = 0; i < num; i++) {
@@ -147,7 +133,6 @@ void assign_technician(string technicianName, string districtName, district dist
     cout << "technician name not updated!" << endl;
   }
 }
-
 int main() {
   district districts[100];
   int num = 0;
@@ -198,7 +183,6 @@ int main() {
         for (int i = 0; i < num; i++) {
           if (districts[i].name == districtNameShutOff) {
             districts[i].has_power = false;
-            //districts[i].power = 0;
             cout << "The district's power has been successfully turned off." << endl;
             changed = true;
           }
@@ -245,13 +229,11 @@ int main() {
         load(inputFileName, districts, num, power);
         break;
       case 8:
-        // cout << "Exiting program" << endl;
         return 0;
       default:
         cout << "Invalid option" << endl;
         break;
     }
   }
-
   return 0;
 }
