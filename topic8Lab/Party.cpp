@@ -105,51 +105,6 @@ string Party::getLocation() const
 void Party::setLocation(string new_loc)
 {   location = new_loc;  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*#include <iostream>
 #include <string>
 #include "Party.h"
