@@ -5,8 +5,20 @@ using namespace std;
 
 class Content {
     public:
+        Content();
+        Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating);
+        virtual void printInfo() const;
+        void markWatched();
+        void markUnWatched();
+        void setRating();
+        string getTitle();
+        bool getIsWatched();
+        double getUserRating();
 
-
-    private:
-        
+    protected:
+        string title;
+        int releaseYear;
+        string genre;
+        bool watched;
+        double userRating;
 };
