@@ -14,6 +14,7 @@ class TvShow : public Content {
         int getEpisodesWatched();
         double getShowProgress();
         virtual void printInfo();
+        
     private:
         int totalSeasons;
         int totalEpisodes;
