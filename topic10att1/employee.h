@@ -17,11 +17,11 @@ public:
    string getSSN() { return ssn; };
    void setName(string _name) { name = _name; };
    void setSSN(string _ssn) { ssn = _ssn; };
-   string getEmployeeInfo();
-   ~Employee();
+   virtual string getEmployeeInfo();
+   virtual ~Employee();
    
    //TODO: Add pure virtual function getTaxes
-   virtual double getTaxes();
+   virtual double getTaxes() = 0;
 
 private:
    string name;

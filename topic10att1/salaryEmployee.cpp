@@ -1,5 +1,4 @@
 #include "salaryEmployee.h"
-
 //TODO: Add destructor
 SalaryEmployee::~SalaryEmployee() {
     cout << "Salary data destroyed." << endl;
