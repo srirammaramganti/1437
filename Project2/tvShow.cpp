@@ -9,7 +9,7 @@ TvShow::TvShow() : Content()
     episodesWatched = 0;
     showCreator = "";
 }
-TvShow::TvShow(int inputTotalSeasons, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator)
+TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalSeasons, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator)
 : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
 {
     totalSeasons = inputTotalSeasons;

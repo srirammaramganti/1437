@@ -8,7 +8,7 @@ Movie::Movie()
   movieDuration = 0;
   director = "";
 }
-Movie::Movie(int inputMovieDuration, string inputDirector)
+Movie::Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector)
   : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
 {
   movieDuration = inputMovieDuration;

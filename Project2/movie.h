@@ -2,17 +2,17 @@
 #define MOVIE_H
 #include "content.h"
 #include <iostream>
-s
+
 class Movie : public Content
 {
 public:
   Movie();
-  Movie(int inputMovieDuration, string inputDirector);
+  Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector);
   int getMovieDuration();
   string getDirector();
   void setMovieDuration(int inputMovieDuration);
   void setDirector(string inputDirector);
-  void printInfo() const override;
+  void printInfo() override;
 
 private:
   int movieDuration;
