@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-TvShow() : Content()
+TvShow::TvShow() : Content()
 {
     totalSeasons = 0;
     totalEpisodes = 0;
@@ -31,9 +31,9 @@ int TvShow::getEpisodesWatched()
 }
 double TvShow::getShowProgress() 
 {
-    return 1.0 * (episodesWatched / totalEpisodes);
+    return (double)episodesWatched / totalEpisodes * 100.0;
 }
 void TvShow::printInfo()
 {
-    
+
 }

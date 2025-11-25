@@ -9,7 +9,7 @@ Movie::Movie()
   director = "";
 }
 Movie::Movie(int inputMovieDuration, string inputDirector)
-  : Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating)
+  : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
 {
   movieDuration = inputMovieDuration;
   director = inputDirector;
@@ -18,7 +18,7 @@ int Movie::getMovieDuration()
 {
   return movieDuration;
 }
-Movie::getDirector()
+string Movie::getDirector()
 {
   return director;
 }
@@ -32,5 +32,5 @@ void Movie::setDirector(string inputDirector)
 }
 void Movie::printInfo()
 {
-    
+
 }

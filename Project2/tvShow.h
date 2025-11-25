@@ -12,7 +12,7 @@ class TvShow : public Content {
         int getTotalEpisodes();
         int getEpisodesWatched();
         double getShowProgress();
-        void printInfo() override;
+        void printInfo() const override;
         
     private:
         int totalSeasons;

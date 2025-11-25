@@ -2,8 +2,7 @@
 #define MOVIE_H
 #include "content.h"
 #include <iostream>
-using namespace std;
-
+s
 class Movie : public Content
 {
 public:
