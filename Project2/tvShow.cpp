@@ -4,15 +4,13 @@ using namespace std;
 
 TvShow::TvShow() : Content()
 {
-    totalSeasons = 0;
     totalEpisodes = 0;
     episodesWatched = 0;
     showCreator = "";
 }
-TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalSeasons, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator)
+TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator)
 : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
 {
-    totalSeasons = inputTotalSeasons;
     totalEpisodes = inputTotalEpisodes;
     episodesWatched = inputEpisodesWatched;
     showCreator = inputShowCreator;
@@ -25,10 +23,6 @@ void TvShow::markWatched() {
 void TvShow::markUnWatched() {
   Content::markUnWatched();
 } 
-int TvShow::getTotalSeasons()
-{
-    return totalSeasons;
-}
 int TvShow::getTotalEpisodes()
 {
     return totalEpisodes;
@@ -43,5 +37,8 @@ double TvShow::getShowProgress()
 }
 void TvShow::printInfo()
 {
-
+    cout << "TV  SHOW" << endl;
+    Content::printInfo();
+    cout << "Creator: " << showCreator << "\n";
+    cout << "Show Progress: " << getShowProgress() << "%\n";
 }

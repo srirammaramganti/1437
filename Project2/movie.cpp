@@ -40,5 +40,11 @@ void Movie::setDirector(string inputDirector)
 }
 void Movie::printInfo()
 {
-
+  cout << "Movie" << endl;
+  Content::printInfo();
+  cout << "Director: " << director << "\n";
+  int minutes = movieDuration % 60;
+  int hours = movieDuration / 60;
+  cout << "Movie duration: " << hours << "h" << minutes << "mins";
+  cout << endl;
 }

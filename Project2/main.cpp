@@ -44,7 +44,7 @@ int main()
 
                 cout << "Title of the movie: " << endl;
                 getline(cin, title);
-                cout << "Enter the release year: " << endl;
+                cout << "Enter the releasze year: " << endl;
                 cin >> year;
                 cout << "Enter genre: " << endl;
                 getline(cin, genre);
@@ -145,14 +145,14 @@ int main()
                     cout << "Invalid choice" << endl;
                     break;
                 }
-                if (choice == 1) watchlist[idx]->markWatched();
-                else if (choice == 2) watchlist[idx]->markUnWatched(); 
+                if (choice == 1) watchlist[index]->markUnWatched();
+                else if (choice == 2) watchlist[index]->markUnWatched(); 
                 else cout << "Invalid choice.\n";
                 break;
             }
             case 4: {
                 if (size == 0) { cout << "Watchlist is empty.\n"; break; }
-                cout << "Select an item:\n";
+                cout << "Select an item:\n";d
                 for (int i = 0; i < size; i++) {
                     cout << i << ") " << watchlist[i]->getTitle() << '\n';
                 }
@@ -177,7 +177,8 @@ int main()
                     cout << "Invalid selection.\n"; break;
                 }
                 cout << "Enter episodes watched: ";
-                int watchedEpisodes; if (!(cin >> watchedEpisodes)) { break; }
+                int watchedEpisodes; 
+                if (!(cin >> watchedEpisodes)) { break; }
                 TvShow->setEpisodesWatched(watchedEpisodes);
                 break;
             }
