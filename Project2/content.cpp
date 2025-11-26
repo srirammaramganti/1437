@@ -45,3 +45,7 @@ double Content::getUserRating()
 {
   return userRating;
 }
+string Content::getContentType()
+{
+    return contentType;
+}

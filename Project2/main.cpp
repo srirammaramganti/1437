@@ -82,7 +82,7 @@ int main()
             case 2: 
             {
                 string title, genre, creator, watched;
-                int episodesWatched, totalSeasons, totalEpisodes, year, episodesWatched;
+                int episodesWatched, totalSeasons, totalEpisodes, year;
                 bool isWatched;
                 double rating;
                 cout << "Title of the show: " << endl;
@@ -121,7 +121,7 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                watchlist[size] = new TvShow(title, year, genre, watched, rating, totalSeasons, totalEpisodes, episodesWatched, creator);
+                watchlist[size] = new TvShow(title, year, genre, isWatched, rating, totalSeasons, totalEpisodes, episodesWatched, creator);
                 break;
             }
             case 3: {
@@ -146,7 +146,7 @@ int main()
                     break;
                 }
                 if (choice == 1) watchlist[idx]->markWatched();
-                else if (choice == 2) watchlist[idx]->markUnWatched();
+                else if (choice == 2) watchlist[idx]->markUnWatched(); 
                 else cout << "Invalid choice.\n";
                 break;
             }
@@ -157,7 +157,7 @@ int main()
                     cout << i << ") " << watchlist[i]->getTitle() << '\n';
                 }
                 int index;
-                if (!(cin >> idx) || idx < 0 || idx >= size) { 
+                if (!(cin >> index) || index < 0 || index >= size) { 
                     cout << "Invalid selection.\n"; 
                     break; 
                 }
@@ -170,16 +170,15 @@ int main()
                 if (size == 0) { cout << "Watchlist is empty.\n"; break; }
                 cout << "Select a TV show:\n";
                 for (int i = 0; i < size; ++i) {
-                    if (dynamic_cast<TvShow*>(watchlist[i]))
-                        cout << i << ") " << watchlist[i]->getTitle() << '\n';
+                    cout << i << ") " << watchlist[i]->getTitle() << '\n';
                 }
-                int idx; 
-                if (!(cin >> idx) || idx < 0 || idx >= size) {
+                int index; 
+                if (!(cin >> index) || index < 0 || index >= size) {
                     cout << "Invalid selection.\n"; break;
                 }
                 cout << "Enter episodes watched: ";
                 int watchedEpisodes; if (!(cin >> watchedEpisodes)) { break; }
-                show->setEpisodesWatched(watchedEpisodes);
+                TvShow->setEpisodesWatched(watchedEpisodes);
                 break;
             }
             case 6: {

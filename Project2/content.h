@@ -15,6 +15,7 @@ public:
   string getTitle();
   bool getIsWatched();
   double getUserRating();
+  string getContentType() const;
 
 protected:
   string title;
@@ -22,4 +23,5 @@ protected:
   string genre;
   bool watched;
   double userRating;
+  string contentType;
 };

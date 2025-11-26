@@ -16,6 +16,7 @@ TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool 
     totalEpisodes = inputTotalEpisodes;
     episodesWatched = inputEpisodesWatched;
     showCreator = inputShowCreator;
+    contentType = "TvShow";
 }
 void TvShow::markWatched() {
   Content::markWatched();
