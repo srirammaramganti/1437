@@ -2,11 +2,11 @@
 #include <iostream>
 using namespace std;
 
-Movie::Movie()
-  : Content()
+Movie::Movie() : Content()
 {
   movieDuration = 0;
   director = "";
+  contentType = "Movie"
 }
 Movie::Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector)
   : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)

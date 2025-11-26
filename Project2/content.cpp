@@ -9,16 +9,18 @@ Content::Content()
   genre = "";
   watched = false;
   userRating = 0.0;
+  contentType = "Content";
 }
-Content::Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating)
+Content::Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, string inputContentType)
 {
   title = inputTitle;
   releaseYear = inputReleaseYear;
   genre = inputGenre;
   watched = inputWatched;
   userRating = inputUserRating;
+  contentType = inputContentType;
 }
-void Content::printInfo() const
+void Content::printInfo()
 {
   cout << "Title: " << title << " (" << releaseYear << ") \n";
   cout << "Genre: " << genre << "\n";
@@ -31,7 +33,7 @@ void Content::printInfo() const
   if (userRating > 0.0) {
     cout << "Rating: " << userRating << "\n";
   } else {
-    cout << "Rating: N/A\n"
+    cout << "Rating: N/A\n";
   }
 }
 void Content::markWatched()
@@ -58,7 +60,7 @@ double Content::getUserRating()
 {
   return userRating;
 }
-string Content::getContentType()
+string Content::getContentType() const
 {
     return contentType;
 }

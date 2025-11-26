@@ -14,6 +14,7 @@ class TvShow : public Content {
         void markUnWatched() override;
         double getShowProgress();
         void printInfo() override;
+        void setEpisodesWatched(int inputEpisodesWatched);
         
     private:
         int totalEpisodes;

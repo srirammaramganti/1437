@@ -44,18 +44,21 @@ int main()
 
                 cout << "Title of the movie: " << endl;
                 getline(cin, title);
-                cout << "Enter the releasze year: " << endl;
+                cout << "Enter the release year: " << endl;
                 cin >> year;
+                cin.ignore();  
                 cout << "Enter genre: " << endl;
                 getline(cin, genre);
                 cout << "Enter director: " << endl;
                 getline(cin, director);
                 cout << "Enter duration: " << endl;
                 cin >> duration;
+                cin.ignore();
                 cout << "Did you watch the movie? (Yes/No)" << endl;
                 getline(cin, watched);
                 cout << "If so, what is your rating? If no then put 0.0" << endl;
                 cin >> rating;
+                cin.ignore();  
 
                 if (size == capacity) {
                     capacity += 1;
@@ -73,7 +76,7 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                watchlist[size] = new Movie(title, year, genre, isWatched, rating, duration, director);
+                watchlist[size] = new Movie(title, year, genre, isWatched, rating, duration, director, "Movie");
                 size += 1;
                 
                 cout << "Movie successfully added!" << endl;
@@ -82,7 +85,7 @@ int main()
             case 2: 
             {
                 string title, genre, creator, watched;
-                int episodesWatched, totalSeasons, totalEpisodes, year;
+                int episodesWatched, totalEpisodes, year, size, capacity;
                 bool isWatched;
                 double rating;
                 cout << "Title of the show: " << endl;
@@ -93,15 +96,15 @@ int main()
                 cin >> creator;
                 cout << "Enter genre: " << endl;
                 cin >> genre;
-                cout << "Enter total no. of seasons: " << endl;
-                cin >> totalSeasons;
                 cout << "Enter total no. of episodes: " << endl;
                 cin >> totalEpisodes;
                 cout << "Enter no. of episodes watched: " << endl;
                 cin >> episodesWatched;
                 cout << "Did you watch the movie? (Yes/No)" << endl;
+                cin.ignore();
                 getline(cin, watched);
                 cout << "If so, what is your rating? If no then put 0.0" << endl;
+                cin.ignore();
                 cin >> rating;
 
 
@@ -121,7 +124,8 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                watchlist[size] = new TvShow(title, year, genre, isWatched, rating, totalSeasons, totalEpisodes, episodesWatched, creator);
+                size += 1;
+                watchlist[size] = new TvShow(title, year, genre, isWatched, rating, totalSeasons, totalEpisodes, episodesWatched, creator, "TvShow");
                 break;
             }
             case 3: {
@@ -145,14 +149,14 @@ int main()
                     cout << "Invalid choice" << endl;
                     break;
                 }
-                if (choice == 1) watchlist[index]->markUnWatched();
+                if (choice == 1) watchlist[index]->markWatched();
                 else if (choice == 2) watchlist[index]->markUnWatched(); 
                 else cout << "Invalid choice.\n";
                 break;
             }
             case 4: {
                 if (size == 0) { cout << "Watchlist is empty.\n"; break; }
-                cout << "Select an item:\n";d
+                cout << "Select an item:\n";
                 for (int i = 0; i < size; i++) {
                     cout << i << ") " << watchlist[i]->getTitle() << '\n';
                 }
@@ -170,16 +174,24 @@ int main()
                 if (size == 0) { cout << "Watchlist is empty.\n"; break; }
                 cout << "Select a TV show:\n";
                 for (int i = 0; i < size; ++i) {
-                    cout << i << ") " << watchlist[i]->getTitle() << '\n';
+                    if (watchlist[i]->getContentType() == "TvShow") {
+                        cout << i << ") " << watchlist[i]->getTitle() << '\n';
+                    }
                 }
                 int index; 
                 if (!(cin >> index) || index < 0 || index >= size) {
                     cout << "Invalid selection.\n"; break;
                 }
+                if (watchlist[index]->getContentType() != "TvShow") {
+                    cout << "Selected item is not a TV show.\n";
+                    break;
+                }
                 cout << "Enter episodes watched: ";
                 int watchedEpisodes; 
                 if (!(cin >> watchedEpisodes)) { break; }
-                TvShow->setEpisodesWatched(watchedEpisodes);
+                TvShow* show = (TvShow*)watchlist[index];
+                show->setEpisodesWatched(watchedEpisodes);
+                cout << "Progress updated" << endl;
                 break;
             }
             case 6: {
