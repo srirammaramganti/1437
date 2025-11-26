@@ -7,7 +7,7 @@ using namespace std;
 class TvShow : public Content {
     public:
         TvShow();
-        TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator);
+        TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator, string inputContentType);
         int getTotalEpisodes();
         int getEpisodesWatched();
         void markWatched() override;

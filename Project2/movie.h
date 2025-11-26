@@ -7,7 +7,7 @@ class Movie : public Content
 {
 public:
   Movie();
-  Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector);
+  Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector, string inputContentType);
   int getMovieDuration();
   string getDirector();
   void markWatched() override;

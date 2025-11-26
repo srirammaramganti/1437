@@ -9,13 +9,12 @@ TvShow::TvShow() : Content()
     showCreator = "";
     contentType = "TvShow";
 }
-TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator)
+TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator, string inputContentType)
 : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
 {
     totalEpisodes = inputTotalEpisodes;
     episodesWatched = inputEpisodesWatched;
     showCreator = inputShowCreator;
-    contentType = "TvShow";
 }
 void TvShow::markWatched() {
   Content::markWatched();

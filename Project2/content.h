@@ -7,7 +7,7 @@ class Content
 {
 public:
   Content();
-  Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating);
+  Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, string inputContentType);
   virtual void printInfo();
   virtual void markWatched();
   virtual void markUnWatched();
