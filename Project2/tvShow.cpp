@@ -17,6 +17,13 @@ TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool 
     episodesWatched = inputEpisodesWatched;
     showCreator = inputShowCreator;
 }
+void TvShow::markWatched() {
+  Content::markWatched();
+}
+
+void TvShow::markUnWatched() {
+  Content::markUnWatched();
+} 
 int TvShow::getTotalSeasons()
 {
     return totalSeasons;

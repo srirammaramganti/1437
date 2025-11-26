@@ -11,6 +11,8 @@ class TvShow : public Content {
         int getTotalSeasons();
         int getTotalEpisodes();
         int getEpisodesWatched();
+        void markWatched() override;
+        void markUnWatched() override;
         double getShowProgress();
         void printInfo() override;
         

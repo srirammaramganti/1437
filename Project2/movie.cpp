@@ -14,6 +14,13 @@ Movie::Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool in
   movieDuration = inputMovieDuration;
   director = inputDirector;
 }
+void Movie::markWatched() {
+  Content::markWatched();
+}
+
+void Movie::markUnWatched() {
+  Content::markUnWatched();
+}
 int Movie::getMovieDuration()
 {
   return movieDuration;

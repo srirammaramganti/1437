@@ -9,8 +9,8 @@ public:
   Content();
   Content(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating);
   virtual void printInfo();
-  void markWatched();
-  void markUnWatched();
+  virtual void markWatched();
+  virtual void markUnWatched();
   void setRating(double inputUserRating);
   string getTitle();
   bool getIsWatched();
