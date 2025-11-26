@@ -124,8 +124,8 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                size += 1;
                 watchlist[size] = new TvShow(title, year, genre, isWatched, rating, totalSeasons, totalEpisodes, episodesWatched, creator, "TvShow");
+                size += 1;
                 break;
             }
             case 3: {
