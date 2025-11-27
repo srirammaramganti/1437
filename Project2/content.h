@@ -25,3 +25,5 @@ protected:
   double userRating;
   string contentType;
 };
+
+#endif

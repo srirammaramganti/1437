@@ -20,3 +20,5 @@ private:
   int movieDuration;
   string director;
 };
+
+#endif

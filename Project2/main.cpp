@@ -165,9 +165,10 @@ int main()
                     cout << "Invalid selection.\n"; 
                     break; 
                 }
-                cout << "Enter new rating (0-10): ";
+                cout << "Enter new rating (1-10): ";
                 double rating; if (!(cin >> rating)) { break; }
                 watchlist[index]->setRating(rating);
+                cout << "Rating successfully added" << endl;    
                 break;
             }
             case 5: {

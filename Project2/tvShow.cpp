@@ -10,7 +10,7 @@ TvShow::TvShow() : Content()
     contentType = "TvShow";
 }
 TvShow::TvShow(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputTotalEpisodes, int inputEpisodesWatched, string inputShowCreator, string inputContentType)
-: Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating)
+: Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating, inputContentType)
 {
     totalEpisodes = inputTotalEpisodes;
     episodesWatched = inputEpisodesWatched;
