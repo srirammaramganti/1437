@@ -35,16 +35,15 @@ int main()
             return 0;
         } 
         switch (option) {
-            case 1: 
-            {
+            case 1: {
                 string title, genre, director, watched;
                 int year, duration;
                 bool isWatched;
                 double rating;
 
-                cout << "Title of the movie: " << endl;
+                cout << "Title of the movie: \n";
                 getline(cin, title);
-                cout << "Enter the release year: " << endl;
+                cout << "Enter the release year: \n";
                 cin >> year;
                 cin.ignore();  
                 cout << "Enter genre: " << endl;
@@ -76,14 +75,13 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                watchlist[size] = new Movie(title, year, genre, isWatched, rating, duration, director, "Movie");
+                watchlist[size] = new Movie(title, year, genre, isWatched, rating, "Movie", duration, director);
                 size += 1;
                 
                 cout << "Movie successfully added!" << endl;
                 break;
             }
-            case 2: 
-            {
+            case 2: {
                 string title, genre, creator, watched;
                 int episodesWatched, totalEpisodes, year, size, capacity;
                 bool isWatched;
@@ -124,7 +122,7 @@ int main()
                 } else {
                     isWatched = false;
                 }
-                watchlist[size] = new TvShow(title, year, genre, isWatched, rating, totalEpisodes, episodesWatched, creator, "TvShow");
+                watchlist[size] = new TvShow(title, year, genre, isWatched, rating, "TvShow", totalEpisodes, episodesWatched, creator);
                 size += 1;
                 break;
             }
@@ -207,6 +205,8 @@ int main()
             case 7:
                 for (int i = 0; i < size; ++i) delete watchlist[i];
                 delete [] watchlist;
+                cout << "Deleting everything ..." << endl;
+                cout << "Deleted everything!" << endl;
                 return 0;
             default:
                 cout << "Invalid menu option" << endl;

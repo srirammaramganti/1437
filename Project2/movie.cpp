@@ -8,7 +8,7 @@ Movie::Movie() : Content()
   director = "";
   contentType = "Movie";
 }
-Movie::Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, int inputMovieDuration, string inputDirector, string inputContentType)
+Movie::Movie(string inputTitle, int inputReleaseYear, string inputGenre, bool inputWatched, double inputUserRating, string inputContentType, int inputMovieDuration, string inputDirector)
   : Content(inputTitle, inputReleaseYear, inputGenre, inputWatched, inputUserRating, inputContentType)
 {
   movieDuration = inputMovieDuration;
