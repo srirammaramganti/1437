@@ -24,7 +24,7 @@ void printMenu() {
 
 int main() 
 {
-    int capacity = 5;
+    int capacity = 0;
     int size = 0;
     Content** watchlist = new Content*[capacity];
     int option = 0;
@@ -42,6 +42,7 @@ int main()
                 double rating;
 
                 cout << "Title of the movie: \n";
+                cin.ignore();
                 getline(cin, title);
                 cout << "Enter the release year: \n";
                 cin >> year;
@@ -55,9 +56,8 @@ int main()
                 cin.ignore();
                 cout << "Did you watch the movie? (Yes/No)" << endl;
                 getline(cin, watched);
-                cout << "If so, what is your rating? If no then put 0.0" << endl;
+                cout << "What would you rate it out of 10" << endl;
                 cin >> rating;
-                cin.ignore();  
 
                 if (size == capacity) {
                     capacity += 1;
@@ -83,28 +83,30 @@ int main()
             }
             case 2: {
                 string title, genre, creator, watched;
-                int episodesWatched, totalEpisodes, year, size, capacity;
+                int episodesWatched, totalEpisodes, year;
                 bool isWatched;
                 double rating;
                 cout << "Title of the show: " << endl;
-                cin >> title;
+                cin.ignore();
+                getline(cin, title);
                 cout << "Enter the release year: " << endl;
                 cin >> year;
                 cout << "Enter show creator: " << endl;
-                cin >> creator;
+                cin.ignore();
+                getline(cin, creator);
                 cout << "Enter genre: " << endl;
-                cin >> genre;
+                cin.ignore();
+                getline(cin, genre);
                 cout << "Enter total no. of episodes: " << endl;
                 cin >> totalEpisodes;
                 cout << "Enter no. of episodes watched: " << endl;
                 cin >> episodesWatched;
-                cout << "Did you watch the movie? (Yes/No)" << endl;
+                cout << "Did you finish the show? (Yes/No)" << endl;
                 cin.ignore();
                 getline(cin, watched);
-                cout << "If so, what is your rating? If no then put 0.0" << endl;
+                cout << "What would you rate it out of 10" << endl;
                 cin.ignore();
                 cin >> rating;
-
 
                 if (size == capacity) {
                     capacity += 1;
@@ -115,9 +117,9 @@ int main()
                     delete [] watchlist;
                     watchlist = newWatchlist;
                 }
-                if (watched == "Yes") {
+                if (watched == "Yes" || watched == "yes") {
                     isWatched = true;
-                } else if (watched == "No") {
+                } else if (watched == "No" || watched == "no") {
                     isWatched = false;
                 } else {
                     isWatched = false;
@@ -196,7 +198,7 @@ int main()
             case 6: {
                 if (size == 0) { cout << "Watchlist is empty.\n"; break; }
                 for (int i = 0; i < size; ++i) {
-                    cout << i << ") ";
+                    cout << i + 1 << ") ";
                     watchlist[i]->printInfo();
                     cout << '\n';
                 }

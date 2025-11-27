@@ -35,12 +35,16 @@ double TvShow::getShowProgress()
 {
     if (totalEpisodes == 0) {
         return 0.0;
+    } else if (totalEpisodes == episodesWatched) {
+        return 100;
+    } else if (watched == true) {
+        return 100;
     }
     return (double)episodesWatched / totalEpisodes * 100.0;
 }
 void TvShow::printInfo()
 {
-    cout << "TV SHOW" << endl;
+    cout << "Tv Show" << endl;
     Content::printInfo();
     cout << "Creator: " << showCreator << "\n";
     cout << "Show Progress: " << getShowProgress() << "%\n";

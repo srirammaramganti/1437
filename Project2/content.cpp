@@ -22,18 +22,18 @@ Content::Content(string inputTitle, int inputReleaseYear, string inputGenre, boo
 }
 void Content::printInfo()
 {
-  cout << "Title: " << title << " (" << releaseYear << ") \n";
-  cout << "Genre: " << genre << "\n";
+  cout << "Title: " << title << " (" << releaseYear << ")" << endl;
+  cout << "Genre: " << genre << endl;
   cout << "Status: ";
   if (watched) {
-      cout << "Watched\n";
+      cout << "Watched" << endl;
   } else {
-      cout << "Not watched\n";
+      cout << "Not watched" << endl;
   }
-  if (userRating > 0.0) {
-    cout << "Rating: " << userRating << "\n";
+  if (userRating > 0) {
+    cout << "Rating: " << userRating << endl;
   } else {
-    cout << "Rating: N/A\n";
+    cout << "Rating: N/A" << endl;
   }
 }
 void Content::markWatched()
