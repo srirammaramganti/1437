@@ -35,8 +35,6 @@ double TvShow::getShowProgress()
 {
     if (totalEpisodes == 0) {
         return 0.0;
-    } else if (totalEpisodes == episodesWatched) {
-        return 100;
     } else if (watched == true) {
         return 100;
     }

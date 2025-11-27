@@ -95,7 +95,7 @@ int main()
                 cin.ignore();
                 getline(cin, creator);
                 cout << "Enter genre: " << endl;
-                cin.ignore();
+                //cin.ignore();
                 getline(cin, genre);
                 cout << "Enter total no. of episodes: " << endl;
                 cin >> totalEpisodes;
@@ -105,7 +105,6 @@ int main()
                 cin.ignore();
                 getline(cin, watched);
                 cout << "What would you rate it out of 10" << endl;
-                cin.ignore();
                 cin >> rating;
 
                 if (size == capacity) {
@@ -135,7 +134,12 @@ int main()
                 }
                 cout << "Select what item you want to mark as watched" << endl;
                 for (int i = 0; i < size; i++) {
-                    cout << i << ")" << watchlist[i]->getTitle() << "->" << watchlist[i]->getIsWatched() << endl;
+                    cout << i << ") " << watchlist[i]->getTitle() << " -> ";
+                    if (watchlist[i]->getIsWatched() == 1) {
+                        cout << "True" << endl;
+                    } else {
+                        cout << "False" << endl;
+                    }
                 }
                 int index;
                 if(!(cin >> index) || index < 0 || index >= size) {
