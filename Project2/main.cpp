@@ -41,46 +41,51 @@ int main()
                 bool isWatched;
                 double rating;
 
-                cout << "Title of the movie: \n";
+                cout << "Title of the movie:\n";
                 cin.ignore();
                 getline(cin, title);
-                cout << "Enter the release year: \n";
+
+                cout << "Enter the release year:\n";
                 cin >> year;
-                cin.ignore();  
-                cout << "Enter genre: " << endl;
-                getline(cin, genre);
-                cout << "Enter director: " << endl;
-                getline(cin, director);
-                cout << "Enter duration: " << endl;
-                cin >> duration;
+
+                cout << "Enter genre:\n";
                 cin.ignore();
-                cout << "Did you watch the movie? (Yes/No)" << endl;
-                getline(cin, watched);
-                cout << "What would you rate it out of 10" << endl;
+                getline(cin, genre);
+
+                cout << "Enter director:\n";
+                getline(cin, director);
+
+                cout << "Enter duration (in mins):\n";
+                cin >> duration;
+
+                cout << "Did you watch the movie? (Yes/No)\n";
+                cin >> watched;     
+
+                cout << "What would you rate it out of 10\n";
                 cin >> rating;
 
                 if (size == capacity) {
-                    capacity += 1;
+                    capacity++;
                     Content** newWatchlist = new Content*[capacity];
                     for (int i = 0; i < size; i++) {
                         newWatchlist[i] = watchlist[i];
                     }
-                    delete [] watchlist;
+                    delete[] watchlist;
                     watchlist = newWatchlist;
                 }
-                if (watched == "Yes") {
+                if (watched == "Yes" || watched == "yes") {
                     isWatched = true;
-                } else if (watched == "No") {
-                    isWatched = false;
                 } else {
                     isWatched = false;
                 }
+
                 watchlist[size] = new Movie(title, year, genre, isWatched, rating, "Movie", duration, director);
-                size += 1;
-                
+                size++;
+
                 cout << "Movie successfully added!" << endl;
                 break;
             }
+
             case 2: {
                 string title, genre, creator, watched;
                 int episodesWatched, totalEpisodes, year;
@@ -101,9 +106,8 @@ int main()
                 cin >> totalEpisodes;
                 cout << "Enter no. of episodes watched: " << endl;
                 cin >> episodesWatched;
-                cout << "Did you finish the show? (Yes/No)" << endl;
-                cin.ignore();
-                getline(cin, watched);
+                cout << "Did you watch the movie? (Yes/No)\n";
+                cin >> watched;
                 cout << "What would you rate it out of 10" << endl;
                 cin >> rating;
 
@@ -118,8 +122,6 @@ int main()
                 }
                 if (watched == "Yes" || watched == "yes") {
                     isWatched = true;
-                } else if (watched == "No" || watched == "no") {
-                    isWatched = false;
                 } else {
                     isWatched = false;
                 }
