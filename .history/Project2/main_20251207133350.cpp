@@ -106,7 +106,7 @@ int main()
                 cin >> totalEpisodes;
                 cout << "Enter no. of episodes watched: " << endl;
                 cin >> episodesWatched;
-                cout << "Did you watch finish the tv show? (Yes/No)\n";
+                cout << "Did you watch the movie? (Yes/No)\n";
                 cin >> watched;
                 cout << "What would you rate it out of 10" << endl;
                 cin >> rating;
